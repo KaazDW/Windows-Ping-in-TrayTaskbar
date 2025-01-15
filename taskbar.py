@@ -34,7 +34,7 @@ class PingTrayIcon:
         while self.running:
             try:
                 latency = ping("8.8.8.8", timeout=1)
-                self.ping_value = f"{round(latency * 1000):d}" if latency else "TO"  # "TO" pour Timeout
+                self.ping_value = f"{round(latency * 1000):d}" if latency else "TO"  # "TO" for Timeout
             except Exception:
                 self.ping_value = "ERR"
 

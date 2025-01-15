@@ -1,9 +1,8 @@
-# ping.py
- 
+# Windows-Ping-Taskbar-Widget
  
 
 <p align="center">
-<span>Python script allow you to **show your ping info** in real time on your screen like a widget, or in taskbar.</span>
+<span>Python script allow you to <b><i>show your ping info</i></b> in real time on your screen like a widget, or in taskbar.</span>
     <br/><br/>
     <img src="https://github.com/KaazDW/ping.py/blob/main/screen_taskbar.png" width="500"/>
     <img src="https://github.com/KaazDW/ping.py/blob/main/screen_window.png" width="500"/>
@@ -32,3 +31,7 @@ pip install pystray pillow ping3
 4. Change the source link in the ```.bat``` 
    
 On the next reboot, the script will be executed automatically, and be display in the ```Task Manager``` 'Auto Start App' tab.
+
+
+<br/><br/><br/>
+Feel free to leave a star ;)
