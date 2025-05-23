@@ -31,10 +31,22 @@ class PingTrayIcon:
 
     def update_ping(self):
         previous_value = None
+        timeout_count = 0
+        TIMEOUT_THRESHOLD = 3
+        last_latency = None
         while not self.stop_event.is_set():
             try:
                 latency = ping("8.8.8.8", timeout=1)
-                new_value = f"{round(latency * 1000):d}" if latency else "TO"  # Timeout
+                if latency:
+                    timeout_count = 0
+                    last_latency = f"{round(latency * 1000):d}"
+                    new_value = last_latency
+                else:
+                    timeout_count += 1
+                    if timeout_count >= TIMEOUT_THRESHOLD:
+                        new_value = "TO"
+                    else:
+                        new_value = last_latency if last_latency else "N/A"
             except Exception as e:
                 print(f"Erreur lors du ping: {e}", file=sys.stderr)
                 new_value = "ERR"
@@ -42,9 +54,12 @@ class PingTrayIcon:
             if new_value != previous_value:
                 self.ping_value = new_value
                 self.icon.icon = self.create_icon(self.ping_value)
+                self.icon.title = (
+                    f"Ping: {self.ping_value} ms" if new_value not in ["TO", "ERR"] else "Ping: Timeout/Error"
+                )
                 previous_value = new_value
 
-            self.stop_event.wait(1) 
+            self.stop_event.wait(1)
 
     def quit(self):
         self.stop_event.set()
