@@ -3,12 +3,16 @@ from PIL import Image, ImageDraw, ImageFont
 from ping3 import ping
 import threading
 import sys
+import webbrowser  # Ajouté pour ouvrir GitHub
 
 class PingTrayIcon:
     def __init__(self):
         self.icon = Icon("Ping Monitor")
         self.icon.icon = self.create_icon("N/A")
-        self.icon.menu = Menu(MenuItem("Quit", self.quit))
+        self.icon.menu = Menu(
+            MenuItem("Open Github", self.open_github),
+            MenuItem("Quit", self.quit)
+        )
         self.stop_event = threading.Event()
         self.ping_value = "N/A"
 
@@ -61,7 +65,10 @@ class PingTrayIcon:
 
             self.stop_event.wait(1)
 
-    def quit(self):
+    def open_github(self, icon, item):
+        webbrowser.open("https://github.com/KaazDW/Windows-Ping-Taskbar-Widget")
+
+    def quit(self, icon=None, item=None):
         self.stop_event.set()
         self.icon.stop()
 
