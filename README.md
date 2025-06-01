@@ -1,4 +1,4 @@
-# Windows-Ping-Taskbar-Widget
+# Windows-Ping-in-TrayTaskbar
 
 Display your real-time ping directly in the Windows system tray with this lightweight Python widget.
 

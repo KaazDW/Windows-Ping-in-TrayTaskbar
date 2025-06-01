@@ -36,7 +36,7 @@ class PingTrayIcon:
     def update_ping(self):
         previous_value = None
         timeout_count = 0
-        TIMEOUT_THRESHOLD = 3
+        TIMEOUT_THRESHOLD = 2
         last_latency = None
         while not self.stop_event.is_set():
             try:
