@@ -1,37 +1,52 @@
 # Windows-Ping-Taskbar-Widget
- 
+
+Display your real-time ping directly in the Windows system tray with this lightweight Python widget.
 
 <p align="center">
-<span>Python script allow you to <b><i>show your ping info</i></b> in real time on your screen like a widget, or in taskbar.</span>
-    <br/><br/>
     <img src="https://github.com/KaazDW/ping.py/blob/main/screen_taskbar.png" width="500"/>
-    <img src="https://github.com/KaazDW/ping.py/blob/main/screen_window.png" width="500"/>
 </p>
+
+## Features
+
+- **Real-time ping display in the Windows system tray**
+- Context menu (right-click) with options:
+  - **Open Github**: Opens the project page
+  - **Quit**: Closes the widget
+- Automatic startup with Windows (see below)
 
 ## Installation
 
-Clone the repository or download the script file.
-Install the required Python libraries:
+1. **Clone the repository or download the files**
+2. **Install Python dependencies**:
 
-for ```window.py```
-```
-pip install psutil ping3
-```
+   ```shell
+   pip install pystray pillow ping3
+   ```
 
-for ```taskbar.py```
-```
-pip install pystray pillow ping3
-```
+3. **Automate startup with Windows**  
+   Use the provided batch script to copy the script to `%appdata%` and create a startup shortcut:
 
-## Windows Auto-Start
+   - Double-click `automated-startup.bat`
+   - The widget will launch automatically at every Windows startup
 
-1. Press ```Win+R```, type ```shell:startup```, and press ```Enter```.
-2. Copy the ```.bat``` file to this folder.
-3. Rename it as you want, maybe something like ```Ping Taskbar Display```
-4. Change the source link in the ```.bat``` 
-   
-On the next reboot, the script will be executed automatically, and be display in the ```Task Manager``` 'Auto Start App' tab.
+## Usage
 
+- Run `taskbar.py` (or let the batch script handle it at startup)
+- The ping will be displayed in the system tray
+- Right-click the icon to access the menu (GitHub, Quit)
 
-<br/><br/><br/>
-Feel free to leave a star ;)
+## Uninstallation
+- execute uninstall.bat
+or
+- Delete the `%appdata%\PingTaskbarWidget` folder
+- Delete the `PingTaskbarWidget.lnk` shortcut from the Startup folder (`shell:startup`)
+
+## Notes
+
+- The script uses `pythonw.exe` to avoid opening a console window.  
+  Make sure Python is installed and available in your PATH.
+- For questions or suggestions, open an issue or pull request!
+
+---
+
+⭐ Feel free to star and share this project if you like it!
