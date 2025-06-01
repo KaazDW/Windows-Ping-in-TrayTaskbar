@@ -36,7 +36,7 @@ Display your real-time ping directly in the Windows system tray with this lightw
 - Right-click the icon to access the menu (GitHub, Quit)
 
 ## Uninstallation
-- execute uninstall.bat
+- execute uninstall.bat <br/>
 or
 - Delete the `%appdata%\PingTaskbarWidget` folder
 - Delete the `PingTaskbarWidget.lnk` shortcut from the Startup folder (`shell:startup`)
